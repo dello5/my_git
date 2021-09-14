@@ -1,0 +1,133 @@
+ex 0
+
+void	ft_ft(int *nbr)
+{
+	*nbr = 42;
+}
+
+ex 1
+
+void	ft_ultimate_ft(int *********nbr)
+{
+	*********nbr = 42;
+}
+
+ex 2
+
+void	ft_swap(int *a, int *b)
+{
+	int swp;
+
+	swp = *a;
+	*a = *b;
+	*b = swp;
+}
+
+ex 3
+
+void	ft_div_mod(int a, int b, int *div, int *mod)
+{
+	*div = a / b;
+	*mod = a % b;
+}
+
+ex 4
+
+void	ft_ultimate_div_mod(int *a, int *b)
+{
+	int div;
+	int mod;
+
+	div = *a / *b;
+	mod = *a % *b;
+	*a = div;
+	*b = mod;
+}
+
+ex 5
+
+int		ft_putchar(char c);
+
+void	ft_putstr(char *str)
+{
+	int		i;
+	char	lol;
+
+	i = 0;
+	while (*(str + i) != '\0')
+	{
+		lol = *(str + i);
+		ft_putchar(lol);
+		i++;
+	}
+}
+
+ex 6
+
+int		ft_strlen(char *str)
+{
+	int		i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
+
+ex 7
+
+char	*ft_strrev(char *str)
+{
+	int		i;
+	int		j;
+	char	tmp;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	j = 0;
+	while (i - 1 > j)
+	{
+		tmp = str[i - 1];
+		str[i - 1] = str[j];
+		str[j] = tmp;
+		i--;
+		j++;
+	}
+	return (str);
+}
+
+ex 8
+
+int		ft_atoi(char *str)
+{
+	int j;
+	int result;
+	int negative;
+
+	negative = 0;
+	while (*str >= 0 && *str <= 32)
+		str++;
+	if (*str == '-')
+	{
+		negative = 1;
+		str++;
+	}
+	else if (*str == '+')
+		str++;
+	result = 0;
+	j = *str - '0';
+	while (j >= 0 && j <= 9 && *str != '\0')
+	{
+		result = result * 10 + j;
+		str++;
+		j = *str - '0';
+	}
+	if (negative)
+		result = result * -1;
+	return (result);
+}

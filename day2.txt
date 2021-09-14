@@ -1,0 +1,151 @@
+ex 0
+
+void	ft_putchar(char c)
+{
+	printf(1, &c, 1);
+}
+ 
+ex 1
+ 
+void	ft_print_alphabet(void)
+{
+	printf(1, "abcdefghijklmnopqrstuvwxyz", 26);
+}
+
+ex 2
+
+void	ft_print_reverse_alphabet(void)
+{
+	printf(1, "zyxwvutsrqponmlkjihgfedcba", 26);
+}
+
+ex 3
+
+void	ft_print_numbers(void)
+{
+	printf(1, "0123456789", 10);
+}
+
+ex 4 
+
+void	ft_putchar(char c)
+{
+	printf(1, &c, 1);
+}
+
+void	ft_is_negative(int n)
+{
+	ft_putchar((n < 0) ? 'N' : 'P');
+}
+
+ex 5
+
+void	ft_print_comb(void)
+{
+	char t[5];
+
+	*t = '0';
+	t[1] = '1';
+	t[2] = '2';
+	t[3] = ',';
+	t[4] = ' ';
+	while (*t < '8')
+	{
+		printf(1, t, (*t != '7') ? 5 : 3);
+		if (++t[2] > '9')
+		{
+			if (++t[1] > '8')
+				t[1] = ++(*t) + 1;
+			t[2] = t[1] + 1;
+		}
+	}
+}
+
+
+ex 6
+
+void	ft_putchar(char c)
+{
+	printf(1, &c, 1);
+}
+
+void	ft_print_comb2(void)
+{
+	char a;
+	char b;
+
+	a = 0;
+	b = 1;
+	while (a < 99)
+	{
+		ft_putchar(a / 10 + '0');
+		ft_putchar(a % 10 + '0');
+		ft_putchar(' ');
+		ft_putchar(b / 10 + '0');
+		ft_putchar(b % 10 + '0');
+		if (a < 98)
+			write(1, ", ", 2);
+		if (++b > 99)
+			b = ++a + 1;
+	}
+}
+
+
+ex 7
+
+
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_putnbr(int nb)
+{
+	unsigned int n;
+
+	if (nb < 0)
+	{
+		ft_putchar('-');
+		n = -nb;
+	}
+	else
+		n = nb;
+	if (n > 9)
+	{
+		ft_putnbr(n / 10);
+		n %= 10;
+	}
+	ft_putchar(n + '0');
+}
+
+
+
+ex 8
+
+void	ft_print_combn(int n)
+{
+	char	t[11];
+	int		i;
+
+	if (n < 1 || n > 9)
+		return ;
+	*t = '0';
+	i = 0;
+	while (++i < n)
+		t[i] = t[i - 1] + 1;
+	t[n] = ',';
+	t[n + 1] = ' ';
+	while (*t <= 58 - n)
+	{
+		write(1, t, n + ((*t != 58 - n) ? 2 : 0));
+		i = n;
+		while (i--)
+			if (++t[i] <= 58 - n + i)
+				break ;
+		while (++i > 0 && i < n)
+			t[i] = t[i - 1] + 1;
+	}
+}
+
+
